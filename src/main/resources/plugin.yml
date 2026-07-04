@@ -1,0 +1,8 @@
+name: Silence Mobs
+version: '1.0.0.0'
+main: io.github.derexxd.silenceMobs.SilenceMobs
+api-version: '1.18'
+prefix: DerexXD
+authors: [ DerexXD ]
+description: Vanilla friendly way to silence mobs!
+website: https://www.derekchen.dev/
