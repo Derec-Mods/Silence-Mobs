@@ -5,11 +5,8 @@ import org.bukkit.plugin.java.JavaPlugin
 
 class SilenceMobs : JavaPlugin() {
 
-    private lateinit var silenceService: SilenceService
-
     override fun onEnable() {
-        silenceService = SilenceService(this)
-        server.pluginManager.registerEvents(SilenceNameTagListener(silenceService), this)
+        server.pluginManager.registerEvents(SilenceNameTagListener(), this)
     }
 
     override fun onDisable() {

@@ -1,6 +1,5 @@
 package io.github.derexxd.silenceMobs.listener
 
-import io.github.derexxd.silenceMobs.SilenceService
 import io.papermc.paper.event.player.PlayerNameEntityEvent
 import net.kyori.adventure.text.serializer.plain.PlainTextComponentSerializer
 import org.bukkit.GameMode
@@ -8,9 +7,7 @@ import org.bukkit.Material
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
 
-class SilenceNameTagListener(
-    private val silenceService: SilenceService,
-) : Listener {
+class SilenceNameTagListener : Listener {
 
     @EventHandler(ignoreCancelled = true)
     fun onNameEntity(event: PlayerNameEntityEvent) {
@@ -19,7 +16,7 @@ class SilenceNameTagListener(
 
         event.isCancelled = true
 
-        silenceService.toggle(event.entity)
+        event.entity.isSilent = !event.entity.isSilent
         consumeNameTag(event)
     }
 
