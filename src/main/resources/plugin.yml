@@ -1,4 +1,4 @@
-name: Silence Mobs
+name: SilenceMobs
 version: '1.0.0.0'
 main: io.github.derexxd.silenceMobs.SilenceMobs
 api-version: '1.18'
