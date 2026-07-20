@@ -1,2 +1,0 @@
-C:\Users\derex\Documents\GitHub\Silence Mobs\src\main\kotlin\io\github\derexxd\silenceMobs\listener\SilenceNameTagListener.kt
-C:\Users\derex\Documents\GitHub\Silence Mobs\src\main\kotlin\io\github\derexxd\silenceMobs\SilenceMobs.kt
