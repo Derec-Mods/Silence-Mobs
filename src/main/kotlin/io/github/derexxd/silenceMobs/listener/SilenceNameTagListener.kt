@@ -4,6 +4,7 @@ import io.papermc.paper.event.player.PlayerNameEntityEvent
 import net.kyori.adventure.text.serializer.plain.PlainTextComponentSerializer
 import org.bukkit.GameMode
 import org.bukkit.Material
+import org.bukkit.entity.Player
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
 
@@ -17,16 +18,22 @@ class SilenceNameTagListener : Listener {
         event.isCancelled = true
 
         event.entity.isSilent = !event.entity.isSilent
-        consumeNameTag(event)
+        consumeNameTag(event.player)
     }
 
-    private fun consumeNameTag(event: PlayerNameEntityEvent) {
-        if (event.player.gameMode == GameMode.CREATIVE) return
+    private fun consumeNameTag(player: Player) {
+        if (player.gameMode == GameMode.CREATIVE) return
 
-        val item = event.player.inventory.getItem(event.hand) ?: return
-        if (item.type != Material.NAME_TAG) return
+        val mainHand = player.inventory.itemInMainHand
+        if (mainHand.type == Material.NAME_TAG) {
+            mainHand.amount = mainHand.amount - 1
+            return
+        }
 
-        item.amount = item.amount - 1
+        val offHand = player.inventory.itemInOffHand
+        if (offHand.type == Material.NAME_TAG) {
+            offHand.amount = offHand.amount - 1
+        }
     }
 
     companion object {
